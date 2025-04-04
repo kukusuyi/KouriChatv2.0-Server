@@ -1,0 +1,16 @@
+actors:
+  "001" :
+    path: "/data/avatars/ATRI/avatar.md"
+    name: "ATRI"
+    emojis: "/data/avatars/ATRI/emojis"
+    description: "亚托莉（アトリ），视觉小说游戏《ATRI -My Dear Moments-》中的角色"
+  "002":
+    path: "/data/avatars/MONO/avatar.md"
+    name: "MONO"
+    emojis: "/data/avatars/MONO/emojis"
+    description: "莫诺（英文名MONO）一个外表15岁，实际18岁.且外表永远不会老化由用户所创造出来的角色，是被创造出来的，性格l冷淡天然电波系，虚拟角色转为现实，美的不真实的超级美少女。"
+  "003":
+    path: "/data/avatars/Nijiko/avatar.md"
+    name: "Nijiko"
+    emojis: "/data/avatars/Nijiko/emojis"
+    description: "你将扮演虹语织（NijiKori），一个活泼的元气笨蛋类型萝莉少女类型机器人。"
