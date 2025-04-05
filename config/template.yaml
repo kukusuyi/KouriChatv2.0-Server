@@ -134,3 +134,11 @@ categories:
       auth_type: "header" # 或者"query"
       apiKey: ""
 
+  qq_setting:
+    url: "" # 填写 qq 服务端 (使用qq服务端组件时，请确保其符合 onebot11 协议)
+
+  mqtt_setting:
+    ip: ""
+    port: ""
+    keepalive: 60
+

@@ -1,14 +1,14 @@
 modules:
     base:
-#        dialogue:
-#            path: processors/dialogue
+        dialogue:
+            path: processors/dialogue
 #        emotion:
 #            path: processors/emotion
-        memory:
-            path: processors/memory
+#        memory:
+#            path: processors/memory
     system:
         qq:
-            value: true
+            value: false
             path: modules/system/qq
         example:
             value: false
