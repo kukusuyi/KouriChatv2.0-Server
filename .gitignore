@@ -2,3 +2,5 @@
 __pycache__
 config/config.yaml
 .idea
+.git
+.DS_Store

@@ -10,6 +10,9 @@ class Http:
     def get(self, address: str, params: Optional[Dict[str, Any]] = None) -> requests.Response:
         """发送 GET 请求"""
         try:
+            if hasattr(params, '__dict__'):
+                json = params.__dict__
+
             return requests.get(
                 self.base_url + address,
                 params=params,
@@ -23,6 +26,10 @@ class Http:
     def post(self, address: str, json: Optional[Dict[str, Any]] = None) -> requests.Response:
         """发送 POST 请求"""
         try:
+            # 如果是对象，转换为字典
+            if hasattr(json, '__dict__'):
+                json = json.__dict__
+            
             return requests.post(
                 self.base_url + address,
                 json=json,
@@ -36,6 +43,8 @@ class Http:
     def put(self, address: str, data: Optional[Dict[str, Any]] = None) -> requests.Response:
         """发送 PUT 请求"""
         try:
+            if hasattr(data, '__dict__'):
+                data = data.__dict__
             return requests.put(
                 self.base_url + address,
                 data=data,

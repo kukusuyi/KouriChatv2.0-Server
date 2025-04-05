@@ -14,7 +14,7 @@ class TextMessage:
         sender_id: 发送者ID
         sender: 发送者名称
         chat_type: 聊天类型
-        character: 角色ID
+        character: 角色ID TODO: rag方面未作出适配
         message_type: 消息类型
         message_send_time: 消息发送时间
         content: 消息内容
