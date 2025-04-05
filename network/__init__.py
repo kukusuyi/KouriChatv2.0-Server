@@ -23,7 +23,7 @@ class NetworkManager:
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def __init__(self, flask_host: str = '127.0.0.1', 
+    def __init__(self, flask_host: str = '0.0.0.0',
                  flask_port: int = 8080,
                  socket_host: str = '127.0.0.1', 
                  socket_port: int = 8000):
@@ -91,7 +91,7 @@ class NetworkAdapterFactory:
     """
     
     @staticmethod
-    def create_adapters(flask_host: str = '127.0.0.1', 
+    def create_adapters(flask_host: str = '0.0.0.0',
                        flask_port: int = 8080,
                        socket_host: str = '127.0.0.1',
                        socket_port: int = 8000) -> Tuple[FlaskAdapter, SocketAdapter]:

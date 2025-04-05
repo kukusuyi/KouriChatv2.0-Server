@@ -7,7 +7,7 @@ from flask import abort
 class TokenConfig:
     SECRET_KEY = os.getenv('JWT_SECRET', 'mysecretkey')
     ALGORITHM = 'HS256'
-    ACCESS_TOKEN_EXPIRE_MINUTES = 30
+    ACCESS_TOKEN_EXPIRE_MINUTES = 12000
 
     @classmethod
     def generate_token(cls, user_id: str) -> str:

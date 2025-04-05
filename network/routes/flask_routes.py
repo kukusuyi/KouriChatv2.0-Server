@@ -21,7 +21,7 @@ class FlaskAdapter():
     实现基于Flask的网络通信，提供HTTP API接口
     """
     
-    def __init__(self, host: str = '127.0.0.1', port: int = 8080):
+    def __init__(self, host: str = '0.0.0.0', port: int = 8080):
         """初始化Flask适配器
         
         Args:

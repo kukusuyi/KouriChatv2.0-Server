@@ -58,7 +58,7 @@ class MessageRoutes:
                     return jsonify({'status': 'error', 'message': 'sender_id必须为整数'}), 400
                 if not isinstance(data['sender'], str):
                     return jsonify({'status': 'error', 'message': 'sender必须为字符串'}), 400
-                if data['chat_type'] != 'group':
+                if data['chat_type'] != 'group' and data['chat_type'] != 'private':
                     return jsonify({'status': 'error', 'message': 'chat_type必须为group或者private'}), 400
                 if not isinstance(data['character'], int):
                     return jsonify({'status': 'error', 'message': 'character必须为整数'}), 400
