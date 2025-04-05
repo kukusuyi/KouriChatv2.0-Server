@@ -139,6 +139,6 @@ categories:
 
   mqtt_setting:
     ip: ""
-    post: ""
+    port: ""
     keepalive: 60
 

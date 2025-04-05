@@ -44,7 +44,7 @@ class dialogueProcessor:
         json_string = json.dumps(res.json(), ensure_ascii=False)
         client = mqtt.Client()
         try:
-            client.connect('14.103.130.69', 1883, 60)
+            client.connect(GlobalVariable.config['categories']['mqtt_setting']['ip'], GlobalVariable.config['categories']['mqtt_setting']['port'], GlobalVariable.config['categories']['mqtt_setting']['keepalive'])
             client.publish(str(message.sender_id), json_string,qos=1)
         except Exception as e:
             print(f"MQTT Error: {e}")
