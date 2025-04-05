@@ -15,8 +15,7 @@ from registry.handler_registry import HandlerRegistry
 
 # 添加项目根目录到系统路径
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-configs = SettingReader().get_config()
-modols = SettingReader().get_model()
+models = SettingReader().get_model()
 logger = logging.getLogger(__name__)
 
 
@@ -24,14 +23,11 @@ def dialogue_task(to_message_send_queue, to_message_get_queue):
     """ 对话处理进程： 该进程用于处理所有与对话发送相关的cpu密集任务
     return: 无返回值
     """
-    # print("cpu密集任务")
     while True:
         message = to_message_get_queue.get()
-        if message is None:  # 停止信号
-            break
-        # test
         print(f"获取到消息{message}")
-        print("cpu密集任务")
+        dialogue_processed = GlobalVariable.handlerRegistry['dialogue']
+        dialogue_processed.processMessage(message)
 
 
 async def main():
@@ -41,7 +37,9 @@ async def main():
 
     process_pool = concurrent.futures.ProcessPoolExecutor()
     manager = Manager()
-    GlobalVariable.init_queues(manager)
+    GlobalVariable.init_queues(manager) # 初始化通信队列
+    GlobalVariable.init_handler_registry() # 初始化动态模块加载器
+    GlobalVariable.init_config() # 初始化全局 config
 
     try:
         # 启动所有服务器

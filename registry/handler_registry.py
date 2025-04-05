@@ -29,7 +29,7 @@ class HandlerRegistry:
             if module_info.get('value', False):
                 self._load_modules(module_name,module_info['path'])
 
-    # def load_handlers(self): Processor
+
     def _load_modules(self, module_name: str, module_path: str):
         """动态加载模块并且实例化处理器
             - module_name : 模块名称
@@ -46,20 +46,17 @@ class HandlerRegistry:
             self.modules[module_name] = processor_class()
             logger.info(f"成功导入模块 {processor_class_name}")
         except ImportError as e:
-            logger.error(f"从{module_path}导入模块{module_name}失败:{e}")
+            logger.error(f"从{module_path}导入模块{module_name}失败:{e}", exc_info=True)
         except AttributeError as e:
-            logger.error(f"在路径{module_path}没有找到类{processor_class_name}:{e}")
+            logger.error(f"在路径{module_path}没有找到类{processor_class_name}:{e}", exc_info=True)
         except Exception as e:
-            print(f"加载模块 {module_name}失败: {e}")
+            logger.error(f"加载模块 {module_name}失败: {e}", exc_info=True)
 
 
 if __name__ == "__main__":
     handler = HandlerRegistry()
-    example = handler.modules['memory']
-    try:
-        example.process_client_message("hello")
-    finally:
-        example.close()
+    example = handler.modules['dialogue']
+
 
 
     
